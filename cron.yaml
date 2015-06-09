@@ -1,0 +1,4 @@
+cron:
+- description: scrape Kickstarter every 30 minutes
+  url: /scrape
+  schedule: every 10 minutes
