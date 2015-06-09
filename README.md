@@ -1,11 +1,12 @@
-## Python Flask Skeleton for Google App Engine
+## KickData: kickstarter data scraper
 
-A skeleton for building Python applications on Google App Engine with the
+A Python applications deployed on Google App Engine with the
 [Flask micro framework](http://flask.pocoo.org).
 
-See our other [Google Cloud Platform github
-repos](https://github.com/GoogleCloudPlatform) for sample applications and
-scaffolding for other python frameworks and use cases.
+This is a Python scraper that you can easily launch in Google App Engine.  Follow the instructions below (written by Google, not by me) to launch.  You will need to set up a Parse database at [Parse.com](parse.com) and plug your API keys into the appropriate places in main.py.  IMPORTANT: call your database "Project" otherwise this will not work.
+
+If you are a researcher and have no desire no set all this up, message me (colinmcd94) and I will export my own database and share it with you.
+
 
 ## Run Locally
 1. Install the [App Engine Python SDK](https://developers.google.com/appengine/downloads).
@@ -23,6 +24,7 @@ See the README file for directions. You'll need python 2.7 and [pip 1.4 or later
    cd appengine-python-flask-skeleton
    pip install -r requirements.txt -t lib
    ```
+   You also must download BeautifulSoup 3.2.1
 4. Run this project locally from the command line:
 
    ```
