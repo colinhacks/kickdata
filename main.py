@@ -20,25 +20,9 @@ import traceback
 import smtplib
 
 # Credentials (if needed)
-username = 'colinmcd94'  
-password = 'mensetmanus' 
+PARSE_APP_ID = "your parse app id here"
+PARSE_REST_API_KEY = "your parse rest api key here"
 
-"""
-def setup_server():
-	# The actual mail send  
-	server = smtplib.SMTP('smtp.gmail.com:587')  
-	server.starttls()  
-	server.login(username,password)
-	return server
-
-def send(server,msg):
-	m = MIME(msg)
-	m['Subject'] = "Error in kickdata script"
-	m['From'] = 'Colin McDonnell <colinmcd94@gmail.com>'
-	m['To'] = "colinmcd@mit.edu"
-	server.sendmail(m["From"], m["To"].split(","), m.as_string())
-	
-"""
 
 def minutes_left(proj):
 	deadline = proj["deadline"]
@@ -65,8 +49,8 @@ def epoch_to_iso8601(timestamp):
 
 def save(cxn,project):
 	cxn.request('POST', '/1/classes/Project', json.dumps(project), {
-		"X-Parse-Application-Id": "QlnlX84K0A6TNyjX14aY56EFSMV00eCzdY8SWcuM",
-		"X-Parse-REST-API-Key": "VxEy0sA4fkJhBanZXoBkKcoYtZ57AiBvY6gkKfeh",
+		"X-Parse-Application-Id": PARSE_APP_ID,
+		"X-Parse-REST-API-Key": PARSE_REST_API_KEY,
 		"Content-Type": "application/json"
 		})
 	result = json.loads(cxn.getresponse().read())
@@ -153,8 +137,8 @@ def scrape():
 				     }),"count":1,"limit":0})
 
 					connection.request('GET', '/1/classes/Project?%s' % params, '', {
-					       "X-Parse-Application-Id": "QlnlX84K0A6TNyjX14aY56EFSMV00eCzdY8SWcuM",
-					       "X-Parse-REST-API-Key": "VxEy0sA4fkJhBanZXoBkKcoYtZ57AiBvY6gkKfeh"
+					       "X-Parse-Application-Id": PARSE_APP_ID,
+					       "X-Parse-REST-API-Key": PARSE_REST_API_KEY
 					     })
 					result = json.loads(connection.getresponse().read())
 					print "Duplicates checK:"
